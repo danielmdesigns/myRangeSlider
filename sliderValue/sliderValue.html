@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Range Slider</title>
+<link rel="stylesheet" href="css/page.css">
+<link rel="stylesheet" href="css/slider.css">
+
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<style>
+.rangeslider__handle:before {
+    font-family: FontAwesome;
+    content: "\f0d9";
+    color: #cccccc;
+}
+
+.rangeslider__handle:after {
+    font-family: FontAwesome;
+    content: "\f0da";
+    color: #cccccc;
+}
+</style>
+</head>
+<body>
+
+<main>
+  <div id="slider">
+    <input type="range" value="3000" step="25" min="750" max="15000">
+  </div>
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
