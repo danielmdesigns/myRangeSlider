@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<!--Slider CSS-->
+<link href="/css/slider/slider.css" rel="stylesheet">
+<link href="/css/slider/pricetable.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- #Price Slider# -->
+<div class="priceSlider">
+  <h1 class="text-center extra-bold-italic-weight text-blue">Commission Advance Estimator</h1>
+  <h3 class="heading3 text-center normal-weight text-green">New customers receive 30% off!</h3>
+  
+  <div id="price-slider">
+    <input type="range" value="3000" step="25" min="750" max="15000">
+    
+    <div class="range">
+      <small class="min pull-left">Min: $750</small>
+      <small class="max pull-right">Max: $15,000</small>
+    </div>
+    
+    <div id="animated-text" class="slideRight text-center">Slide to get started →</div>
+  </div>
+  
+  <div id="tableContainer" class="form-group">
+    <table id="feeTable">
+      <tbody>
+        <tr class="advance">
+          <td>Advance Amount</td>
+          <td>
+            <div id="advanceAmount">
+              <input id="advanceInputField" name="advanceInputField" size="7" type="text" value="" class="mbsc-comp" readonly aria-invalid="false">
+            </div>
+          </td>
+        </tr>
+        <tr id="feeTotalLine" class="underline">
+          <td id="feeFieldLabel">Advance Fee</td>
+          <td>
+            <div id="newRegularAmount" class="strikeFee">$572</div>
+            <span id="newFee" class="green extra-bold-weight">$286</span>
+          </td>
+        </tr>
+        <tr class="total">
+          <td>Due at Closing</td>
+          <td>
+            <div id="newAmountDue" class="bold-weight">$3,286</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <a class="btn btn-main btn-big btn-priceTable __margin-top-40 text-center" href="/join/start.php">Let's get started</a>
+  
+  <div class="advanceDisclaimer">
+    <ul>
+      <li><strong><em>New customers receive 30% off with code NEW30</em></strong></li>
+      <li>Example is based on a 40 day closing. Long advances available up to 120 days.</li>
+      <li>The fee is added to your advance, meaning you pay nothing upfront to use this service.</li>
+      <li>There is a 20-day grace period from the closing date to have the advance repaid without any additional cost.</li>
+      <li>Advance limits may vary based on sales production.</li>
+    </ul>
+  </div>
+  
+  <br>
+</div>
+<!-- #End Price Slider# -->
+
+<!-- 50% (Discover) off PriceSlider-->
+<div class="priceSlider">
+  <h1 class="text-center extra-bold-italic-weight text-blue">Commission Advance Estimator</h1>
+  <h3 class="heading3 text-center normal-weight text-green">New customers receive 50% off!</h3>
+  
+  <div id="price-slider">
+    <input type="range" value="3000" step="25" min="750" max="15000">
+    
+    <div class="range">
+      <small class="min pull-left">Min: $750</small>
+      <small class="max pull-right">Max: $15,000</small>
+    </div>
+    
+    <div id="animated-text" class="slideRight text-center">Slide to get started →</div>
+  </div>
+  
+  <div id="tableContainer" class="form-group">
+    <table id="feeTable">
+      <tbody>
+        <tr class="advance">
+          <td>Advance Amount</td>
+          <td>
+            <div id="advanceAmount">
+              <input id="advanceInputField" name="advanceInputField" size="7" type="text" value="" class="mbsc-comp" readonly aria-invalid="false">
+            </div>
+          </td>
+        </tr>
+        <tr id="feeTotalLine" class="underline">
+          <td id="feeFieldLabel">Advance Fee</td>
+          <td>
+            <div id="newRegularAmount" class="strikeFee">$572</div>
+            <span id="newFee" class="green extra-bold-weight">$286</span>
+          </td>
+        </tr>
+        <tr class="total">
+          <td>Due at Closing</td>
+          <td>
+            <div id="newAmountDue" class="bold-weight">$3,286</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <a class="btn btn-main btn-big btn-priceTable __margin-top-40 text-center" href="/join/start.php">Let's get started</a>
+  
+  <div class="advanceDisclaimer">
+    <ul>
+      <li><strong><em>New customers receive 50% off with code DISCOVER</em></strong></li>
+      <li>Example is based on a 40 day closing. Long advances available up to 120 days.</li>
+      <li>The fee is added to your advance, meaning you pay nothing upfront to use this service.</li>
+      <li>There is a 20-day grace period from the closing date to have the advance repaid without any additional cost.</li>
+      <li>Advance limits may vary based on sales production.</li>
+    </ul>
+  </div>
+  
+  <br>
+</div>
+
+
+<!-- Javascript -->
+<script src="/js/slider/slider.js?v=10_05"></script>
+<script>
+//custom slider javascript
+var $element = $('input[type="range"]');
+
+var $handle;
+
+$element
+  .rangeslider({
+    polyfill: false,
+    onInit: function(){
+      $handle = $('.rangeslider__handle', this.$range);
+      updateHandle($handle[0], this.value);
+    }
+  }).on('input', function() {
+    updateHandle($handle[0], this.value);
+  });
+
+function updateHandle(el, val) {
+  val = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  var myNumber = " " + "$" + val + " ";
+  //put the price into the handle element
+  el.textContent = myNumber;
+  $("#advanceInputField").val(myNumber);
+}
+
+//when slider changes, hide start message
+$("input").on("change", function() {
+  $("#animated-text").fadeOut("slow");
+});
+</script>
+</body>
+</html>
